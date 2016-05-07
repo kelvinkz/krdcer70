@@ -9,6 +9,8 @@ import android.util.Log;
 /**
  * Created by Eduardo on 05/05/2016.
  */
+
+/*
 public class Conexao2  extends SQLiteOpenHelper{
 
     private static final String TAG = "DBAdapter";
@@ -92,3 +94,4 @@ public class Conexao2  extends SQLiteOpenHelper{
         }
     }
 }
+*/

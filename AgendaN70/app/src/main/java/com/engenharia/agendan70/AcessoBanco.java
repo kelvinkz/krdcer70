@@ -4,6 +4,8 @@ package com.engenharia.agendan70;
  * Created by edilene on 26/04/16.
  */
 
+/*
+
     import android.content.ContentValues;
     import android.content.Context;
     import android.database.Cursor;
@@ -75,3 +77,4 @@ package com.engenharia.agendan70;
             return db.update(NOME_BD, args, CODIGO + "=" + cod, null) > 0;
         }
     }
+*/

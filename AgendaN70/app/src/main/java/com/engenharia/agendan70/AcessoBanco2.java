@@ -3,7 +3,7 @@ package com.engenharia.agendan70;
 /**
  * Created by Eduardo on 05/05/2016.
  */
-
+/*
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -75,3 +75,4 @@ public class AcessoBanco2 {
         return db.update(NOME_BD, args, CODIGO + "=" + cod, null) > 0;
     }
 }
+*/
