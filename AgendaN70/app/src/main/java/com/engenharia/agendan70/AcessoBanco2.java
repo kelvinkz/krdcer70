@@ -3,12 +3,15 @@ package com.engenharia.agendan70;
 /**
  * Created by Eduardo on 05/05/2016.
  */
-/*
+
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+
+
 
 public class AcessoBanco2 {
 
@@ -19,13 +22,13 @@ public class AcessoBanco2 {
 
     private final Context context;
 
-    private Conexao conector;
+    private Conexao2 conector;
     private SQLiteDatabase db;
 
     public AcessoBanco2(Context ctx)
     {
         this.context = ctx;
-        conector = new Conexao(context);
+        conector = new Conexao2(context);
     }
 
 
@@ -75,4 +78,3 @@ public class AcessoBanco2 {
         return db.update(NOME_BD, args, CODIGO + "=" + cod, null) > 0;
     }
 }
-*/
