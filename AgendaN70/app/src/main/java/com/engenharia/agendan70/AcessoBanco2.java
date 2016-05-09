@@ -3,29 +3,32 @@ package com.engenharia.agendan70;
 /**
  * Created by Eduardo on 05/05/2016.
  */
-/*
+
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+
+
 public class AcessoBanco2 {
 
     public static final String CODIGO = "ID";
     public static final String NOME = "NOME";
-    private static final String NOME_BD = "DBAGENDA";
+    private static final String NOME_BD = "DBAGENDA.sqlite";
     private static final String NOME_TABELA = "PARTICIPANTE";
 
     private final Context context;
 
-    private Conexao conector;
+    private Conexao2 conector;
     private SQLiteDatabase db;
 
     public AcessoBanco2(Context ctx)
     {
         this.context = ctx;
-        conector = new Conexao(context);
+        conector = new Conexao2(context);
     }
 
 
@@ -40,19 +43,19 @@ public class AcessoBanco2 {
         conector.close();
     }
 
-    public long inserePessoa(String name)
+    public long insertParticipante(String name)
     {
         ContentValues initialValues = new ContentValues();
         initialValues.put(NOME, name);
         return db.insert(NOME_TABELA, null, initialValues);
     }
 
-    public boolean removePessoa(long cod)
+    public boolean removeParticipante(long cod)
     {
         return db.delete(NOME_TABELA, CODIGO + "=" + cod, null) > 0;
     }
 
-    public Cursor getCadastros()
+    public Cursor getParticipantes()
     {
         return db.query(NOME_TABELA, new String[] {CODIGO, NOME}, null, null, null, null, null);
     }
@@ -68,11 +71,10 @@ public class AcessoBanco2 {
         return mCursor;
     }
 
-    public boolean updatePessoa(long cod, String name, String email)
+    public boolean updateParticipante(long cod, String name, String email)
     {
         ContentValues args = new ContentValues();
         args.put(NOME, name);
         return db.update(NOME_BD, args, CODIGO + "=" + cod, null) > 0;
     }
 }
-*/
