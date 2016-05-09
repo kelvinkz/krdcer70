@@ -3,7 +3,7 @@ package com.engenharia.agendan70;
 /**
  * Created by edilene on 26/04/16.
  */
-/*
+
     import android.content.Context;
     import android.database.SQLException;
     import android.database.sqlite.SQLiteDatabase;
@@ -46,4 +46,3 @@ package com.engenharia.agendan70;
         }
 
     }
-*/

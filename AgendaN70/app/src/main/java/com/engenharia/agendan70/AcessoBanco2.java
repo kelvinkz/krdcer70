@@ -4,7 +4,10 @@ package com.engenharia.agendan70;
  * Created by Eduardo on 05/05/2016.
  */
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 2243be5... Criação do layout inicial e classe calendario
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;

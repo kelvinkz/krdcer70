@@ -12,9 +12,13 @@ import java.io.IOException;
 /**
  * Created by Eduardo on 05/05/2016.
  */
+<<<<<<< HEAD
 
 
 public class Conexao2 extends SQLiteOpenHelper{
+=======
+public class Conexao2  extends SQLiteOpenHelper{
+>>>>>>> parent of 2243be5... Criação do layout inicial e classe calendario
 
     private static final String TAG = "DBAdapter";
 
