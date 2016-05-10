@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 String novoNome = txtNome.getText().toString();
 
                 db.open();
-                db.inserePessoa(novoNome);
+                db.insertParticipante(novoNome);
                 db.close();
 
                 txtNome.setText("");
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 db.open();
-                Cursor c = db.getCadastros();
+                Cursor c = db.getParticipantes();
 
                 if (c.moveToFirst())
                 {
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     public void mostraRegistro(Cursor c)
     {
         Toast.makeText(this,
@@ -66,4 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.LENGTH_SHORT).show();
     }
 
+    public void gotoToCalendario() {
+        
+    }
 }
