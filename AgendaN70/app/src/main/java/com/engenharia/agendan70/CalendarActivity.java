@@ -9,7 +9,7 @@ import android.widget.CalendarView;
 import android.widget.CalendarView.OnDateChangeListener;
 import android.widget.Toast;
 
-public class calendario extends AppCompatActivity {
+public class CalendarActivity extends AppCompatActivity {
     CalendarView calendar;
 
     @Override
@@ -17,7 +17,7 @@ public class calendario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //Define a activity
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_calendar);
 
         //Chama a função que cria o layout
         initializeCalendar();
