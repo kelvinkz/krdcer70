@@ -18,8 +18,7 @@ public class Conexao2 extends SQLiteOpenHelper{
 
     private static final String TAG = "DBAdapter";
 
-    //private static String DBPATH = "C:/Transito/Desenvolvimento/Android/krdcer70/";
-    private static String DBPATH = "/Users/Ran/krdcer70/";
+    private static String DBPATH = "C:/Users/user/krdcer70/";
     private static final String NOME_BD = "DBAGENDA.sqlite";
     private static final int DATABASE_VERSION = 1;
     private Context context;
@@ -66,7 +65,7 @@ public class Conexao2 extends SQLiteOpenHelper{
             db = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY);
             db.close();
         } catch (Exception e) {
-            // O banco não existe
+            // Implementar criacao do db
         }
 
         return db != null;
@@ -74,13 +73,19 @@ public class Conexao2 extends SQLiteOpenHelper{
 
     private void copyDatabase() throws IOException {
 
-//            while((length = dbInputStream.read(buffer)) &gt; 0) {
-//                dbStream.write(buffer, 0, length);
-//            }
-//
-//            dbInputStream.close();
-//            dbStream.flush();
-//            dbStream.close();
-//        }
+        InputStream Input = context.getAssets().open(NOME_BD);
+        String outFileName = DBPATH + NOME_BD;
+        OutputStream Output = new FileOutputStream(outFileName);
+
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = Input.read(buffer))>0){
+            Output.write(buffer, 0, length);
+        }
+
+        Output.flush();
+        Output.close();
+        Input.close();
+
     }
 }
