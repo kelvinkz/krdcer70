@@ -1,9 +1,5 @@
 package com.engenharia.agendan70;
 
-/**
- * Created by edilene on 26/04/16.
- */
-/*
     import android.content.Context;
     import android.database.SQLException;
     import android.database.sqlite.SQLiteDatabase;
@@ -13,13 +9,12 @@ package com.engenharia.agendan70;
     public class Conexao extends SQLiteOpenHelper {
 
         private static final String TAG = "DBAdapter";
-
         private static final String NOME_BD = "empresa";
         private static final int DATABASE_VERSION = 2;
 
 
         private static final String DATABASE_CREATE =
-                "create table pessoas (codigo integer primary key autoincrement, nome text not null);";
+                "create table pessoas (codigo integer primary key, nome text not null);";
 
         Conexao(Context context)
         {
@@ -46,4 +41,3 @@ package com.engenharia.agendan70;
         }
 
     }
-*/

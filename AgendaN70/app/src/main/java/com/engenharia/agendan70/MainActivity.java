@@ -1,5 +1,6 @@
 package com.engenharia.agendan70;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,24 +16,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        final AcessoBanco2 db = new AcessoBanco2(this);
+        final AcessoBanco db = new AcessoBanco(this);
         Button btMostrar = (Button) findViewById(R.id.buttonCarregar);
         Button btGravar = (Button) findViewById(R.id.buttonSalvar);
         Button btCalendar = (Button) findViewById(R.id.buttonCalendario);
-        final EditText txtNome = (EditText) findViewById(R.id.editText);
-
+        final EditText id = (EditText) findViewById(R.id.codigo);
+        final EditText nome = (EditText) findViewById(R.id.nome);
 
         btGravar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                String novoNome = txtNome.getText().toString();
+                String novoNome = nome.getText().toString();
+                int novoID = Integer.parseInt(id.getText().toString());
 
                 db.open();
-                db.insertParticipante(novoNome);
+                db.inserePessoa(novoNome, novoID);
                 db.close();
 
-                txtNome.setText("");
+                nome.setText("");
+                id.setText("");
                 //mostraRegistro("Inserção realizada com sucesso. ");
             }
         });
@@ -40,8 +42,10 @@ public class MainActivity extends AppCompatActivity {
         btMostrar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                int idBuscar = Integer.parseInt(id.getText().toString());
+
                 db.open();
-                Cursor c = db.getParticipantes();
+                Cursor c = db.getPessoa(idBuscar);
 
                 if (c.moveToFirst())
                 {
@@ -53,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 db.close();
             }
         });
-
-
     }
 
     public void mostraRegistro(Cursor c)
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gotoToCalendario() {
-        
+        Intent intent = new Intent(this, CalendarActivity.class);
+        startActivity(intent);
     }
 }
