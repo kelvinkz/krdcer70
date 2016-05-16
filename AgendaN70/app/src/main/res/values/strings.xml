@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Agenda-N70</string>
+    <string name="novoEvento">Novo Evento</string>
+    <string name="nomeEvento">Título:</string>
+    <string name="tipoRepet">Repetição:</string>
+    <string name="iniciaem">Data de início:</string>
+    <string name="termina">Termino:</string>
+    <string name="nunca">Nunca</string>
+    <string name="apos">Após</string>
+    <string name="ocorrencias">ocorrências</string>
+    <string name="terminaem">Em</string>
+    <string name="concluido">Concluir</string>
+    <string name="cancelar">Cancelar</string>
 </resources>
