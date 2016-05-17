@@ -1,9 +1,5 @@
 package com.engenharia.agendan70;
 
-/**
- * Created by diego on 06/05/16.
- */
-/*
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CalendarView;
@@ -49,4 +45,3 @@ public class CalendarActivity extends AppCompatActivity {
         });
     }
 }
-*/

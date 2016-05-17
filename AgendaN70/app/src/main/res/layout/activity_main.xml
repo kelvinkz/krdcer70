@@ -13,7 +13,11 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"/>
+        android:id="@+id/codigo"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nome"/>
     <Button
         android:text="Salvar no banco"
         android:layout_width="match_parent"

@@ -1,11 +1,5 @@
 package com.engenharia.agendan70;
 
-/**
- * Created by edilene on 26/04/16.
- */
-
-/*
-
     import android.content.ContentValues;
     import android.content.Context;
     import android.database.Cursor;
@@ -42,14 +36,15 @@ package com.engenharia.agendan70;
             conector.close();
         }
 
-        public long inserePessoa(String name)
+        public long inserePessoa(String name, int codigo)
         {
             ContentValues initialValues = new ContentValues();
-            initialValues.put(NOME, NOME);
+            initialValues.put(NOME, name);
+            initialValues.put(CODIGO, codigo);
             return db.insert(NOME_TABELA, null, initialValues);
         }
 
-        public boolean remmovePessoa(long cod)
+        public boolean removePessoa(long cod)
         {
             return db.delete(NOME_TABELA, CODIGO + "=" + cod, null) > 0;
         }
@@ -77,4 +72,3 @@ package com.engenharia.agendan70;
             return db.update(NOME_BD, args, CODIGO + "=" + cod, null) > 0;
         }
     }
-*/
