@@ -1,7 +1,6 @@
 package com.engenharia.agendan70;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.io.FileOutputStream;
@@ -18,13 +17,15 @@ public class Conexao2 extends SQLiteOpenHelper{
 
     private static final String TAG = "DBAdapter";
 
-    private static String DBPATH = "C:/Users/user/krdcer70/";
-    private static final String NOME_BD = "DBAGENDA.sqlite";
+    private static Context context;
+    private static String DBPATH = "";
+    private static final String NOME_BD = "DBAGENDA.db";
     private static final int DATABASE_VERSION = 1;
-    private Context context;
 
 
     private void createDataBase(){
+
+        DBPATH = context.getApplicationInfo().dataDir + "/krdcer70/";
 
         boolean exists = checkDataBase();
 
@@ -76,16 +77,14 @@ public class Conexao2 extends SQLiteOpenHelper{
         InputStream Input = context.getAssets().open(NOME_BD);
         String outFileName = DBPATH + NOME_BD;
         OutputStream Output = new FileOutputStream(outFileName);
-
         byte[] buffer = new byte[1024];
         int length;
-        while ((length = Input.read(buffer))>0){
+
+        while ((length = Input.read(buffer)) > 0){
             Output.write(buffer, 0, length);
         }
-
         Output.flush();
         Output.close();
         Input.close();
-
     }
 }

@@ -16,9 +16,9 @@ import android.database.sqlite.SQLiteDatabase;
 public class AcessoBanco2 {
 
     public static final String CODIGO = "ID";
-    public static final String NOME = "NOME";
-    private static final String NOME_BD = "DBAGENDA.sqlite";
-    private static final String NOME_TABELA = "PARTICIPANTE";
+    public static final String NOME = "nome";
+    private static final String NOME_BD = "dbagenda.db";
+    private static final String NOME_TABELA = "participante";
 
     private final Context context;
 
