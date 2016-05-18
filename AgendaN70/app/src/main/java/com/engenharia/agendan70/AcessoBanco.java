@@ -1,5 +1,6 @@
 package com.engenharia.agendan70;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -45,5 +46,19 @@ public class AcessoBanco {
         }
         cursor.close();
         return list;
+    }
+
+    public long insertEvento(String descricao) {
+        ContentValues initialValues = new ContentValues();
+        initialValues.put("DESCRICAO", descricao);
+        return database.insert("TIPO_EVENTO", null, initialValues);
+    }
+
+    public Cursor selectEvento(long id) {
+        Cursor mCursor = database.query(true, "TIPO_EVENTO", new String[] {"ID", "DESCRICAO"}, "ID" + "=" + id, null, null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
     }
 }
