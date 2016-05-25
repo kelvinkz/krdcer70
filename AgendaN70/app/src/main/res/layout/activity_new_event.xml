@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.engenharia.agendan70.NewEventActivity">
+    tools:context="com.ec2016.myapplication.MainActivity">
 
     <TextView
         android:layout_width="fill_parent"
@@ -73,15 +73,27 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/semFim"
                 android:text="@string/nunca"/>
-            <LinearLayout
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/qtdOcorrencias"
-                    android:text="@string/apos"/>
+                android:id="@+id/qtdOcorrencias"
+                android:text="@string/apos"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/termino"
+                android:text="@string/em"/>
+        </RadioGroup>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="1px"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
                 <EditText
                     android:layout_width="100px"
                     android:layout_height="wrap_content"
@@ -92,24 +104,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/ocorrencias" />
             </LinearLayout>
-            <LinearLayout
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/qtdOcorrencias"
-                    android:text="@string/terminaem"/>
-                <EditText
-                    android:id="@+id/dt_fim"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:text="Data de final"/>
+                android:inputType="date"
+                android:id="@+id/dataFim"/>
 
-            </LinearLayout>
-        </RadioGroup>
+        </LinearLayout>
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
