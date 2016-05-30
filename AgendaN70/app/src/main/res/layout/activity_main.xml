@@ -5,33 +5,9 @@
     android:padding="20dp"
     android:orientation="vertical" >
 
-    <TextView
-        android:text="Testar aplicacao"
+    <CalendarView
+        android:id="@+id/calendar"
         android:layout_margin="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/codigo"/>
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/nome"/>
-    <Button
-        android:text="Salvar no banco"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonSalvar"/>
-    <Button
-        android:text="Carregar do banco"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonCarregar"/>
-    <Button
-        android:text="Ir para o calendario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonCalendario"
-        android:onClick="gotoToCalendario"/>
+        android:layout_height="match_parent" />
 </LinearLayout>
