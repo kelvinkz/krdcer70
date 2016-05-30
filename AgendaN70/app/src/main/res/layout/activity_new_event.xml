@@ -80,7 +80,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/qtdOcorrencias"
+                    android:id="@+id/qtdOcorrencias1"
                     android:text="@string/apos"/>
                 <EditText
                     android:layout_width="100px"
@@ -99,7 +99,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/qtdOcorrencias"
+                    android:id="@+id/qtdOcorrencias2"
                     android:text="@string/terminaem"/>
                 <EditText
                     android:id="@+id/dt_fim"
