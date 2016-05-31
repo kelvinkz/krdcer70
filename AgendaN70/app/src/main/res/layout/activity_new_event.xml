@@ -35,8 +35,8 @@
             android:text="@string/tipoRepet" />
         <Spinner
             android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
             android:background="@android:drawable/btn_dropdown"
             android:spinnerMode="dropdown" />
     </LinearLayout>
@@ -73,15 +73,27 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/semFim"
                 android:text="@string/nunca"/>
-            <LinearLayout
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/qtdOcorrencias1"
-                    android:text="@string/apos"/>
+                android:id="@+id/qtdOcorrencias"
+                android:text="@string/apos"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/termino"
+                android:text="@string/em"/>
+        </RadioGroup>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="1px"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
                 <EditText
                     android:layout_width="100px"
                     android:layout_height="wrap_content"
@@ -92,24 +104,12 @@
                     android:layout_height="wrap_content"
                     android:text="@string/ocorrencias" />
             </LinearLayout>
-            <LinearLayout
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/qtdOcorrencias2"
-                    android:text="@string/terminaem"/>
-                <EditText
-                    android:id="@+id/dt_fim"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:text="Data de final"/>
-
-            </LinearLayout>
-        </RadioGroup>
+                android:inputType="date"
+                android:id="@+id/dataFim"/>
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -119,8 +119,8 @@
             android:id="@+id/bt_concluido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/concluido"
-            android:onClick="gotoConcluir"/>
+            android:text="@string/salvar"
+            android:onClick="gotoSalvar"/>
         <Button
             android:id="@+id/bt_cancelar"
             android:layout_width="wrap_content"
@@ -128,5 +128,4 @@
             android:text="@string/cancelar"
             android:onClick="gotoCancelar"/>
     </LinearLayout>
-
 </LinearLayout>

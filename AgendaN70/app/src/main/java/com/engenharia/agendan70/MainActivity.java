@@ -1,7 +1,9 @@
 package com.engenharia.agendan70;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
@@ -18,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initializeCalendar() {
-        calendar = (CalendarView) findViewById(R.id.calendar);
+        calendar = (CalendarView) findViewById(R.id.calendarView);
 
         calendar.setShowWeekNumber(false);
 
@@ -40,5 +42,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), day + "/" + month + "/" + year, Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void gotoNewEvent(View view) {
+        Intent intent = new Intent(this, NewEventActivity.class);
+        startActivity(intent);
     }
 }

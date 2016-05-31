@@ -11,4 +11,6 @@
     <string name="terminaem">Em</string>
     <string name="concluido">Concluir</string>
     <string name="cancelar">Cancelar</string>
+    <string name="em">Em</string>
+    <string name="salvar">Salvar</string>
 </resources>
