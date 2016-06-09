@@ -14,4 +14,13 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Nome"
         android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:id="@+id/campoID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/campoDescricao"
+        android:text="ID" />
 </RelativeLayout>

@@ -7,9 +7,10 @@
     tools:context="com.engenharia.agendan70.NewEventActivity">
 
     <TextView
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/novoEvento" />
+        android:text="@string/novoEvento"
+        android:textSize="24sp"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -18,11 +19,29 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nomeEvento" />
+            android:text="@string/nomeEvento"
+            android:textSize="18sp"/>
         <EditText
             android:layout_width="350px"
             android:layout_height="wrap_content"
-            android:id="@+id/titulo"/>
+            android:id="@+id/titulo"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Local: "
+            android:textSize="18sp"/>
+        <EditText
+            android:layout_width="350px"
+            android:layout_height="wrap_content"
+            android:id="@+id/local"
+            android:textSize="18sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -32,14 +51,16 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tipoRepet" />
+            android:text="Tipo do Evento: "
+            android:textSize="18sp"/>
         <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="250dp"
+            android:id="@+id/spinner0"
+            android:layout_width="200dp"
             android:layout_height="30dp"
             android:background="@android:drawable/btn_dropdown"
             android:spinnerMode="dropdown" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,14 +68,33 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/iniciaem" />
+            android:text="Repetição:          "
+            android:textSize="18sp"/>
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/iniciaem"
+            android:textSize="18sp"/>
         <EditText
             android:id="@+id/dt_inicio"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:text="Data de inicio"/>
+            android:textSize="18sp"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,55 +102,33 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/termina" />
-        <RadioGroup
-            android:layout_width="wrap_content"
+            android:text="Data de fim: "
+            android:textSize="18sp"/>
+        <EditText
+            android:id="@+id/dt_fim"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/terminar"
-            android:orientation="vertical">
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/semFim"
-                android:text="@string/nunca"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/qtdOcorrencias"
-                android:text="@string/apos"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/termino"
-                android:text="@string/em"/>
-        </RadioGroup>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="1px"
-                android:layout_height="wrap_content" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:layout_width="100px"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:id="@+id/numOcorrencias"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ocorrencias" />
-            </LinearLayout>
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="date"
-                android:id="@+id/dataFim"/>
-        </LinearLayout>
+            android:enabled="false"
+            android:textSize="18sp"/>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Participantes: "
+            android:textSize="18sp"/>
+        <EditText
+            android:layout_width="350px"
+            android:layout_height="wrap_content"
+            android:id="@+id/participante"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -120,12 +138,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/salvar"
-            android:onClick="gotoSalvar"/>
+            android:onClick="gotoSalvar"
+
+            android:textSize="18sp"/>
         <Button
             android:id="@+id/bt_cancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancelar"
-            android:onClick="gotoCancelar"/>
+            android:onClick="gotoCancelar"
+            android:textSize="18sp"/>
     </LinearLayout>
 </LinearLayout>

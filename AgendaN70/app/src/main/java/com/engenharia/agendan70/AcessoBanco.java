@@ -6,7 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AcessoBanco {
@@ -48,6 +50,31 @@ public class AcessoBanco {
         return list;
     }
 
+    public long inserCompromisso(Date date, String descricao, DateFormat horaInicio, DateFormat horaFim, long tipoEvento, String local) {
+        ContentValues initialValues = new ContentValues();
+        initialValues.put("DATA", date.toString());
+        initialValues.put("DESCRICAO", descricao);
+        initialValues.put("HORA_FIM", horaInicio.toString());
+        initialValues.put("HORA_INI", horaFim.toString());
+        initialValues.put("ID_TIPO", tipoEvento);
+        initialValues.put("LOCAL", local);
+        return database.insert("COMPROMISSO", null, initialValues);
+    }
+
+    public Cursor selectCompromisso(long id) {
+
+        Cursor mCursor = database.rawQuery("SELECT * FROM COMPROMISSO", null);
+
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
+    public void deleteCompromisso() {
+        database.execSQL("DELETE FROM COMPROMISSO");
+    }
+
     public long insertEvento(String descricao) {
         ContentValues initialValues = new ContentValues();
         initialValues.put("DESCRICAO", descricao);
@@ -58,7 +85,6 @@ public class AcessoBanco {
 
         Cursor mCursor = database.rawQuery("SELECT ID _id, DESCRICAO FROM TIPO_EVENTO", null);
 
-//        Cursor mCursor = database.query(true, "TIPO_EVENTO", new String[] {"DESCRICAO", "ID"}, "ID" + "=" + id, null, null, null, null, null);
         if (mCursor != null) {
             mCursor.moveToFirst();
         }

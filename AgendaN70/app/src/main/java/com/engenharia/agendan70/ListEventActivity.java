@@ -29,10 +29,9 @@ public class ListEventActivity extends AppCompatActivity {
         cursor = AcessoBanco.getInstance(this).selectEvento(0);
         AcessoBanco.getInstance(this).close();
 
-        int i = cursor.getCount();
         //cria cursor que será exibido na tela, nele serão exibidos
         //todos os contatos cadastrados
-       dataSource = new SimpleCursorAdapter(this, R.layout.formulario, cursor, campos, new int[] {R.id.campoDescricao});
+       dataSource = new SimpleCursorAdapter(this, R.layout.formulario, cursor, campos, new int[] {R.id.campoDescricao, R.id.campoID});
         //relaciona o dataSource ao próprio listview
        listView.setAdapter(dataSource);
     }
@@ -43,6 +42,7 @@ public class ListEventActivity extends AppCompatActivity {
         AcessoBanco.getInstance(this).insertEvento(descricao.getText().toString());
         descricao.setText("");
         AcessoBanco.getInstance(this).close();
+        listView.refreshDrawableState();
     }
 
     public void btnApagar(View view) {
