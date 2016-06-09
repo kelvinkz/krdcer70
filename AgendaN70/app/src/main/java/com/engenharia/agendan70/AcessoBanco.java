@@ -55,10 +55,17 @@ public class AcessoBanco {
     }
 
     public Cursor selectEvento(long id) {
-        Cursor mCursor = database.query(true, "TIPO_EVENTO", new String[] {"ID", "DESCRICAO"}, "ID" + "=" + id, null, null, null, null, null);
+
+        Cursor mCursor = database.rawQuery("SELECT ID _id, DESCRICAO FROM TIPO_EVENTO", null);
+
+//        Cursor mCursor = database.query(true, "TIPO_EVENTO", new String[] {"DESCRICAO", "ID"}, "ID" + "=" + id, null, null, null, null, null);
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
         return mCursor;
+    }
+
+    public void deleteEvento() {
+        database.execSQL("DELETE FROM TIPO_EVENTO");
     }
 }

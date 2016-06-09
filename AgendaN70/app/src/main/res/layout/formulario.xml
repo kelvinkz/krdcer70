@@ -8,20 +8,10 @@
 
 
     <TextView
-        android:id="@+id/campoId"
+        android:id="@+id/campoDescricao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Nome"
         android:layout_alignParentLeft="true"/>
-
-    <TextView
-        android:id="@+id/campoDescricao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/campoId"
-        android:gravity="right"
-        android:text="Endereco" />
 </RelativeLayout>
