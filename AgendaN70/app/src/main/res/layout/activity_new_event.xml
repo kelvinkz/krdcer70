@@ -24,7 +24,7 @@
         <EditText
             android:layout_width="350px"
             android:layout_height="wrap_content"
-            android:id="@+id/titulo"
+            android:id="@+id/campoTitulo"
             android:textSize="18sp"/>
     </LinearLayout>
 
@@ -40,7 +40,7 @@
         <EditText
             android:layout_width="350px"
             android:layout_height="wrap_content"
-            android:id="@+id/local"
+            android:id="@+id/campoLocal"
             android:textSize="18sp"/>
     </LinearLayout>
 
@@ -49,14 +49,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="135dp"
             android:layout_height="wrap_content"
-            android:text="Tipo do Evento: "
+            android:text="Tipo do Evento:"
             android:textSize="18sp"/>
         <Spinner
-            android:id="@+id/spinner0"
+            android:id="@+id/campoTipoEvento"
             android:layout_width="200dp"
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:background="@android:drawable/btn_dropdown"
             android:spinnerMode="dropdown" />
     </LinearLayout>
@@ -66,14 +66,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="135dp"
             android:layout_height="wrap_content"
-            android:text="Repetição:          "
+            android:text="Repetição:"
             android:textSize="18sp"/>
         <Spinner
-            android:id="@+id/spinner1"
+            android:id="@+id/campoRepeticao"
             android:layout_width="200dp"
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:background="@android:drawable/btn_dropdown"
             android:spinnerMode="dropdown" />
     </LinearLayout>
@@ -83,16 +83,15 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="135dp"
             android:layout_height="wrap_content"
-            android:text="@string/iniciaem"
+            android:text="Data de Inicio:"
             android:textSize="18sp"/>
         <EditText
-            android:id="@+id/dt_inicio"
-            android:layout_width="fill_parent"
+            android:id="@+id/campoDataInicio"
+            android:layout_width="350px"
             android:layout_height="wrap_content"
-            android:enabled="false"
-            android:textSize="18sp"/>
+            android:inputType="date"/>
     </LinearLayout>
 
     <LinearLayout
@@ -100,16 +99,15 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="135dp"
             android:layout_height="wrap_content"
-            android:text="Data de fim: "
+            android:text="Data de fim:"
             android:textSize="18sp"/>
         <EditText
-            android:id="@+id/dt_fim"
-            android:layout_width="fill_parent"
+            android:id="@+id/campoDataFim"
+            android:layout_width="350px"
             android:layout_height="wrap_content"
-            android:enabled="false"
-            android:textSize="18sp"/>
+            android:inputType="date"/>
     </LinearLayout>
 
     <LinearLayout
@@ -117,14 +115,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="135dp"
             android:layout_height="wrap_content"
             android:text="Participantes: "
             android:textSize="18sp"/>
         <EditText
             android:layout_width="350px"
             android:layout_height="wrap_content"
-            android:id="@+id/participante"
+            android:id="@+id/campoParticipante"
             android:textSize="18sp"/>
 
     </LinearLayout>
@@ -135,15 +133,15 @@
         android:orientation="horizontal">
         <Button
             android:id="@+id/bt_concluido"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/salvar"
             android:onClick="gotoSalvar"
-
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:layout_marginLeft="40dp"/>
         <Button
             android:id="@+id/bt_cancelar"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/cancelar"
             android:onClick="gotoCancelar"

@@ -50,20 +50,17 @@ public class AcessoBanco {
         return list;
     }
 
-    public long inserCompromisso(Date date, String descricao, DateFormat horaInicio, DateFormat horaFim, long tipoEvento, String local) {
+    public long insertCompromisso(Date date, String descricao, long tipoEvento, String local) {
         ContentValues initialValues = new ContentValues();
         initialValues.put("DATA", date.toString());
         initialValues.put("DESCRICAO", descricao);
-        initialValues.put("HORA_FIM", horaInicio.toString());
-        initialValues.put("HORA_INI", horaFim.toString());
-        initialValues.put("ID_TIPO", tipoEvento);
         initialValues.put("LOCAL", local);
         return database.insert("COMPROMISSO", null, initialValues);
     }
 
     public Cursor selectCompromisso(long id) {
 
-        Cursor mCursor = database.rawQuery("SELECT * FROM COMPROMISSO", null);
+        Cursor mCursor = database.rawQuery("SELECT ID _id, DESCRICAO, DATA FROM COMPROMISSO", null);
 
         if (mCursor != null) {
             mCursor.moveToFirst();
