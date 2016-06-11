@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class EditEventActivity extends AppCompatActivity {
+public class ViewEventActivity extends AppCompatActivity {
 
     private EditText campoTitulo;
     private EditText campoLocal;
@@ -23,7 +23,7 @@ public class EditEventActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_event);
+        setContentView(R.layout.activity_view_event);
 
         campoTitulo = (EditText) findViewById(R.id.campoTitulo);
         campoLocal = (EditText) findViewById(R.id.campoLocal);
@@ -58,15 +58,7 @@ public class EditEventActivity extends AppCompatActivity {
         }
     }
 
-    public void gotoSalvar(View view) {
-        AcessoBanco.getInstance(this).open();
-        AcessoBanco.getInstance(this).updateCompromisso(campoDataInicio.getText().toString(), campoTitulo.getText().toString(), campoLocal.getText().toString(), campoParticipante.getText().toString(), campoTipoEvento.getSelectedItem().toString(), id);
-        AcessoBanco.getInstance(this).close();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    public void gotoCancelar(View view) {
+    public void gotoVoltar(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

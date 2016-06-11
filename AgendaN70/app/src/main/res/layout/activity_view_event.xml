@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.engenharia.agendan70.EditEventActivity">
+    tools:context="com.engenharia.agendan70.ViewEventActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/editar_compromisso"
+        android:text="@string/detalhes_compromisso"
         android:textSize="24sp"/>
 
     <LinearLayout
@@ -116,19 +116,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/bt_concluido"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="@string/salvar"
-            android:onClick="gotoSalvar"
-            android:textSize="18sp"
-            android:layout_marginLeft="40dp"/>
-        <Button
             android:id="@+id/bt_cancelar"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="@string/cancelar"
-            android:onClick="gotoCancelar"
-            android:textSize="18sp"/>
+            android:text="Voltar"
+            android:onClick="gotoVoltar"
+            android:textSize="18sp"
+            android:layout_marginLeft="115dp"/>
     </LinearLayout>
 </LinearLayout>

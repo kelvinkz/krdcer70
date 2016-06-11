@@ -15,7 +15,6 @@ public class NewEventActivity extends AppCompatActivity {
     private Spinner campoTipoEvento;
     private Spinner campoRepeticao;
     private EditText campoDataInicio;
-    private EditText campoDataFim;
     private EditText campoParticipante;
 
     @Override
@@ -27,8 +26,7 @@ public class NewEventActivity extends AppCompatActivity {
         campoLocal = (EditText) findViewById(R.id.campoLocal);
         campoTipoEvento = (Spinner) findViewById(R.id.campoTipoEvento);
         campoRepeticao = (Spinner) findViewById(R.id.campoRepeticao);
-        campoDataInicio = (EditText) findViewById(R.id.campoDataInicio);
-        campoDataFim = (EditText) findViewById(R.id.campoDataFim);
+        campoDataInicio = (EditText) findViewById(R.id.campoData);
         campoParticipante = (EditText) findViewById(R.id.campoParticipante);
 
         ArrayAdapter<String> adapterTipoEvento = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, new String[]{"Festa", "Casamento", "Reuniao", "Outro"});

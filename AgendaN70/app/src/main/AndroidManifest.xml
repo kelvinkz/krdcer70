@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".NewEventActivity" />
         <activity android:name=".EditEventActivity" />
+        <activity android:name=".ViewEventActivity"></activity>
     </application>
 
 </manifest>

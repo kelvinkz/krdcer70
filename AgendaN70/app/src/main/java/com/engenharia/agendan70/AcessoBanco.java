@@ -63,9 +63,7 @@ public class AcessoBanco {
     }
 
     public Cursor selectCompromisso(String date) {
-
         Cursor mCursor = database.rawQuery("SELECT ID _id, DESCRICAO, DATA FROM COMPROMISSO WHERE DATA = '" + date + "'", null);
-
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
@@ -74,5 +72,23 @@ public class AcessoBanco {
 
     public void deleteCompromisso(int id) {
         database.execSQL("DELETE FROM COMPROMISSO WHERE ID = " + id);
+    }
+
+    public Cursor selectCompromisso(int id) {
+        Cursor mCursor = database.rawQuery("SELECT * FROM COMPROMISSO WHERE ID = " + id, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
+    public void updateCompromisso(String date, String descricao, String local, String participantes, String tipoEvento, int id) {
+        ContentValues cv = new ContentValues();
+        cv.put("DATA", date); //These Fields should be your String values of actual column names
+        cv.put("DESCRICAO", descricao);
+        cv.put("LOCAL", local);
+        cv.put("PARTICIPANTES", participantes);
+        cv.put("TIPO_EVENTO", tipoEvento);
+        database.update("COMPROMISSO", cv, "ID="+id, null);
     }
 }

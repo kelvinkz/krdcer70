@@ -13,4 +13,12 @@
     <string name="cancelar">Cancelar</string>
     <string name="em">Em</string>
     <string name="salvar">Salvar</string>
+    <string name="data">Data:</string>
+    <string name="participantes">Participantes:</string>
+    <string name="repeti_o">Repetição:</string>
+    <string name="tipo_do_evento">Tipo do Evento:</string>
+    <string name="local">Local:</string>
+    <string name="editar_evento">Editar Evento:</string>
+    <string name="editar_compromisso">Editar Compromisso</string>
+    <string name="detalhes_compromisso">Detalhes Compromisso</string>
 </resources>

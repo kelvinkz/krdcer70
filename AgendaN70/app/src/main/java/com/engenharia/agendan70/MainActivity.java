@@ -87,16 +87,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gotoEditCompromisso(View view) {
-        Intent intent = new Intent(this, NewEventActivity.class);
+        EditText campoId = (EditText) findViewById(R.id.campoId);
+        int id = Integer.parseInt(campoId.getText().toString());
+        Intent intent = new Intent(this, EditEventActivity.class);
+        intent.putExtra("ID", id);
         startActivity(intent);
     }
 
     public void gotoDeletCompromisso(View view) {
-
         EditText campoId = (EditText) findViewById(R.id.campoId);
         int id = Integer.parseInt(campoId.getText().toString());
         AcessoBanco.getInstance(this).open();
         AcessoBanco.getInstance(this).deleteCompromisso(id);
         AcessoBanco.getInstance(this).close();
+    }
+
+    public void gotoViewCompromisso(View view) {
+        EditText campoId = (EditText) findViewById(R.id.campoId);
+        int id = Integer.parseInt(campoId.getText().toString());
+        Intent intent = new Intent(this, ViewEventActivity.class);
+        intent.putExtra("ID", id);
+        startActivity(intent);
     }
 }

@@ -35,7 +35,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Local: "
+            android:text="@string/local"
             android:textSize="18sp"/>
         <EditText
             android:layout_width="350px"
@@ -51,7 +51,7 @@
         <TextView
             android:layout_width="135dp"
             android:layout_height="wrap_content"
-            android:text="Tipo do Evento:"
+            android:text="@string/tipo_do_evento"
             android:textSize="18sp"/>
         <Spinner
             android:id="@+id/campoTipoEvento"
@@ -68,7 +68,7 @@
         <TextView
             android:layout_width="135dp"
             android:layout_height="wrap_content"
-            android:text="Repetição:"
+            android:text="@string/repeti_o"
             android:textSize="18sp"/>
         <Spinner
             android:id="@+id/campoRepeticao"
@@ -85,10 +85,10 @@
         <TextView
             android:layout_width="135dp"
             android:layout_height="wrap_content"
-            android:text="Data de Inicio:"
+            android:text="@string/data"
             android:textSize="18sp"/>
         <EditText
-            android:id="@+id/campoDataInicio"
+            android:id="@+id/campoData"
             android:layout_width="350px"
             android:layout_height="wrap_content"
             android:inputType="date"/>
@@ -101,23 +101,7 @@
         <TextView
             android:layout_width="135dp"
             android:layout_height="wrap_content"
-            android:text="Data de fim:"
-            android:textSize="18sp"/>
-        <EditText
-            android:id="@+id/campoDataFim"
-            android:layout_width="350px"
-            android:layout_height="wrap_content"
-            android:inputType="date"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:text="Participantes: "
+            android:text="@string/participantes"
             android:textSize="18sp"/>
         <EditText
             android:layout_width="350px"
