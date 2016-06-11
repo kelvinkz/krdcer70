@@ -62,9 +62,9 @@ public class AcessoBanco {
         return database.insert("COMPROMISSO", null, initialValues);
     }
 
-    public Cursor selectCompromisso(String sDate) {
+    public Cursor selectCompromisso(String date) {
 
-        Cursor mCursor = database.rawQuery("SELECT ID _id, DESCRICAO, DATA FROM COMPROMISSO", null);
+        Cursor mCursor = database.rawQuery("SELECT ID _id, DESCRICAO, DATA FROM COMPROMISSO WHERE DATA = '" + date + "'", null);
 
         if (mCursor != null) {
             mCursor.moveToFirst();
@@ -72,7 +72,7 @@ public class AcessoBanco {
         return mCursor;
     }
 
-    public void deleteCompromisso() {
-        database.execSQL("DELETE FROM COMPROMISSO");
+    public void deleteCompromisso(int id) {
+        database.execSQL("DELETE FROM COMPROMISSO WHERE ID = " + id);
     }
 }

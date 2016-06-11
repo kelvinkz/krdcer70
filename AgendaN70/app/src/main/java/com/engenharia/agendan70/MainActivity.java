@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.CursorAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
@@ -38,7 +39,25 @@ public class MainActivity extends AppCompatActivity {
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
-                String date = day + "/" + month + "/" + year;
+
+                //Mes
+                month++;
+                String sMonth;
+                if (month < 10) {
+                    sMonth = "0" + month;
+                } else {
+                    sMonth = Integer.toString(month);
+                }
+
+                //Dia
+                String sDay;
+                if (day < 10) {
+                    sDay = "0" + day;
+                } else {
+                    sDay = Integer.toString(day);
+                }
+
+                String date = sDay + "/" + sMonth + "/" + year;
                 Toast.makeText(getApplicationContext(), date, Toast.LENGTH_LONG).show();
                 updateListView(date);
             }
@@ -54,8 +73,11 @@ public class MainActivity extends AppCompatActivity {
         if (cursor.getCount() > 0) {
             CursorAdapter dataSource = new SimpleCursorAdapter(this, R.layout.formulario, cursor, new String[]{"DESCRICAO", "DATA", "_id"}, new int[]{R.id.campoTitulo, R.id.campoData, R.id.campoId});
             listView.setAdapter(dataSource);
+            listView.setVisibility(listView.VISIBLE);
         } else {
             Toast.makeText(getApplicationContext(), "Nenhum compromisso para o dia!", Toast.LENGTH_LONG).show();
+            listView.refreshDrawableState();
+            listView.setVisibility(listView.INVISIBLE);
         }
     }
 
@@ -67,5 +89,14 @@ public class MainActivity extends AppCompatActivity {
     public void gotoEditCompromisso(View view) {
         Intent intent = new Intent(this, NewEventActivity.class);
         startActivity(intent);
+    }
+
+    public void gotoDeletCompromisso(View view) {
+
+        EditText campoId = (EditText) findViewById(R.id.campoId);
+        int id = Integer.parseInt(campoId.getText().toString());
+        AcessoBanco.getInstance(this).open();
+        AcessoBanco.getInstance(this).deleteCompromisso(id);
+        AcessoBanco.getInstance(this).close();
     }
 }

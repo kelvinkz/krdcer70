@@ -34,7 +34,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:text="X"
-            android:onClick="gotoSalvar"
+            android:onClick="gotoDeletCompromisso"
             android:textSize="18sp"/>
     </LinearLayout>
 
