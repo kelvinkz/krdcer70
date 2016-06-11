@@ -16,9 +16,25 @@
             android:text="Descricao:"
             android:textSize="18sp"/>
         <EditText
-            android:layout_width="350px"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/campoTitulo"
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/btEditar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="E"
+            android:onClick="gotoSalvar"
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/btExcluir"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="X"
+            android:onClick="gotoSalvar"
             android:textSize="18sp"/>
     </LinearLayout>
 
@@ -32,9 +48,16 @@
             android:text="Data:"
             android:textSize="18sp"/>
         <EditText
-            android:layout_width="350px"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/campoData"
             android:textSize="18sp"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/campoId"
+            android:textSize="18sp"
+            android:visibility="invisible"/>
     </LinearLayout>
 </LinearLayout>

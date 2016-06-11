@@ -38,23 +38,33 @@ public class MainActivity extends AppCompatActivity {
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
-                Toast.makeText(getApplicationContext(), day + "/" + month + "/" + year, Toast.LENGTH_LONG).show();
-                updateListView();
+                String date = day + "/" + month + "/" + year;
+                Toast.makeText(getApplicationContext(), date, Toast.LENGTH_LONG).show();
+                updateListView(date);
             }
         });
     }
 
-    public void updateListView() {
+    public void updateListView(String date) {
 
         AcessoBanco.getInstance(this).open();
-        Cursor cursor = AcessoBanco.getInstance(this).selectCompromisso(0);
+        Cursor cursor = AcessoBanco.getInstance(this).selectCompromisso(date);
         AcessoBanco.getInstance(this).close();
 
-        CursorAdapter dataSource = new SimpleCursorAdapter(this, R.layout.formulario, cursor, new String[] {"DESCRICAO", "DATA"}, new int[]{R.id.campoTitulo, R.id.campoData});
-        listView.setAdapter(dataSource);
+        if (cursor.getCount() > 0) {
+            CursorAdapter dataSource = new SimpleCursorAdapter(this, R.layout.formulario, cursor, new String[]{"DESCRICAO", "DATA", "_id"}, new int[]{R.id.campoTitulo, R.id.campoData, R.id.campoId});
+            listView.setAdapter(dataSource);
+        } else {
+            Toast.makeText(getApplicationContext(), "Nenhum compromisso para o dia!", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void gotoNewEvent(View view) {
+        Intent intent = new Intent(this, NewEventActivity.class);
+        startActivity(intent);
+    }
+
+    public void gotoEditCompromisso(View view) {
         Intent intent = new Intent(this, NewEventActivity.class);
         startActivity(intent);
     }

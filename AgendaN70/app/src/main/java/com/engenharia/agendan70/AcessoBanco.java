@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -50,15 +52,17 @@ public class AcessoBanco {
         return list;
     }
 
-    public long insertCompromisso(Date date, String descricao, long tipoEvento, String local) {
+    public long insertCompromisso(String date, String descricao, String local, String participantes, String tipoEvento) {
         ContentValues initialValues = new ContentValues();
-        initialValues.put("DATA", date.toString());
+        initialValues.put("DATA", date);
         initialValues.put("DESCRICAO", descricao);
         initialValues.put("LOCAL", local);
+        initialValues.put("PARTICIPANTES", participantes);
+        initialValues.put("TIPO_EVENTO", tipoEvento);
         return database.insert("COMPROMISSO", null, initialValues);
     }
 
-    public Cursor selectCompromisso(long id) {
+    public Cursor selectCompromisso(String sDate) {
 
         Cursor mCursor = database.rawQuery("SELECT ID _id, DESCRICAO, DATA FROM COMPROMISSO", null);
 
@@ -70,25 +74,5 @@ public class AcessoBanco {
 
     public void deleteCompromisso() {
         database.execSQL("DELETE FROM COMPROMISSO");
-    }
-
-    public long insertEvento(String descricao) {
-        ContentValues initialValues = new ContentValues();
-        initialValues.put("DESCRICAO", descricao);
-        return database.insert("TIPO_EVENTO", null, initialValues);
-    }
-
-    public Cursor selectEvento(long id) {
-
-        Cursor mCursor = database.rawQuery("SELECT ID _id, DESCRICAO FROM TIPO_EVENTO", null);
-
-        if (mCursor != null) {
-            mCursor.moveToFirst();
-        }
-        return mCursor;
-    }
-
-    public void deleteEvento() {
-        database.execSQL("DELETE FROM TIPO_EVENTO");
     }
 }

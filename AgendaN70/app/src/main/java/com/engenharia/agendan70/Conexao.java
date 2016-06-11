@@ -5,7 +5,7 @@ package com.engenharia.agendan70;
 
 public class Conexao extends SQLiteAssetHelper {
 
-        private static final String DATABASE_NAME = "DBAGENDA.DB";
+        private static final String DATABASE_NAME = "DBAGENDA_NEW.DB";
         private static final int DATABASE_VERSION = 1;
 
     public Conexao(Context context) {

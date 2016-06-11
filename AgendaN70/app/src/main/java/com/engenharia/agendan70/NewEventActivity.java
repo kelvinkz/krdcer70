@@ -45,18 +45,10 @@ public class NewEventActivity extends AppCompatActivity {
 
     public void gotoSalvar(View view) {
 
-        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-
-        Date date = null;
-        try {
-            date = formatter.parse(campoDataInicio.getText().toString());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
         // TODO: ACAO DE SALVAR AQUI
         AcessoBanco.getInstance(this).open();
-        AcessoBanco.getInstance(this).insertCompromisso(date, campoTitulo.getText().toString(), 4, campoLocal.getText().toString());
+        AcessoBanco.getInstance(this).insertCompromisso(campoDataInicio.getText().toString(), campoTitulo.getText().toString(), campoLocal.getText().toString(), campoParticipante.getText().toString(), campoTipoEvento.getSelectedItem().toString());
         AcessoBanco.getInstance(this).close();
 
 
