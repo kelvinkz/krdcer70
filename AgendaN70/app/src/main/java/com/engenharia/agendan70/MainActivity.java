@@ -95,11 +95,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gotoDeletCompromisso(View view) {
+
         EditText campoId = (EditText) findViewById(R.id.campoId);
         int id = Integer.parseInt(campoId.getText().toString());
+
         AcessoBanco.getInstance(this).open();
-        AcessoBanco.getInstance(this).deleteCompromisso(id);
+        Cursor cursor = AcessoBanco.getInstance(this).selectCompromisso(id);
         AcessoBanco.getInstance(this).close();
+
+        if (!cursor.getString(cursor.getColumnIndex("REPETICAO")).equals("Sem repetição")) {
+            for (int i = 0; i < 30; i++) {
+                AcessoBanco.getInstance(this).open();
+                AcessoBanco.getInstance(this).deleteCompromisso(id);
+                AcessoBanco.getInstance(this).close();
+                id++;
+            }
+        } else {
+            AcessoBanco.getInstance(this).open();
+            AcessoBanco.getInstance(this).deleteCompromisso(id);
+            AcessoBanco.getInstance(this).close();
+        }
     }
 
     public void gotoViewCompromisso(View view) {

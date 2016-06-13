@@ -10,6 +10,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class EditEventActivity extends AppCompatActivity {
 
     private EditText campoTitulo;
@@ -40,10 +44,10 @@ public class EditEventActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         id = bundle.getInt("ID");
-        preencherCampos(id);
+        preencherCampos();
     }
 
-    public void preencherCampos(int id) {
+    public void preencherCampos() {
         AcessoBanco.getInstance(this).open();
         Cursor cursor = AcessoBanco.getInstance(this).selectCompromisso(id);
         AcessoBanco.getInstance(this).close();
@@ -59,9 +63,18 @@ public class EditEventActivity extends AppCompatActivity {
     }
 
     public void gotoSalvar(View view) {
-        AcessoBanco.getInstance(this).open();
-        AcessoBanco.getInstance(this).updateCompromisso(campoDataInicio.getText().toString(), campoTitulo.getText().toString(), campoLocal.getText().toString(), campoParticipante.getText().toString(), campoTipoEvento.getSelectedItem().toString(), campoRepeticao.getSelectedItem().toString(), id);
-        AcessoBanco.getInstance(this).close();
+        if (!campoRepeticao.getSelectedItem().toString().equals("Sem repetição")) {
+            for (int i = 0; i < 30; i++) {
+                AcessoBanco.getInstance(this).open();
+                AcessoBanco.getInstance(this).updateCompromisso(campoTitulo.getText().toString(), campoLocal.getText().toString(), campoParticipante.getText().toString(), campoTipoEvento.getSelectedItem().toString(), campoRepeticao.getSelectedItem().toString(), id);
+                AcessoBanco.getInstance(this).close();
+                id++;
+            }
+        } else {
+            AcessoBanco.getInstance(this).open();
+            AcessoBanco.getInstance(this).updateCompromisso(campoTitulo.getText().toString(), campoLocal.getText().toString(), campoParticipante.getText().toString(), campoTipoEvento.getSelectedItem().toString(), campoRepeticao.getSelectedItem().toString(), id);
+            AcessoBanco.getInstance(this).close();
+        }
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
