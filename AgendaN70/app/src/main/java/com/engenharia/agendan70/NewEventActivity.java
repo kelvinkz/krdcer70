@@ -8,6 +8,12 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class NewEventActivity extends AppCompatActivity {
 
     private EditText campoTitulo;
@@ -37,14 +43,41 @@ public class NewEventActivity extends AppCompatActivity {
     }
 
     public void gotoSalvar(View view) {
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat  df = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            c.setTime(df.parse(campoDataInicio.getText().toString()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        String data = df.format(c.getTime());
+        if (!campoRepeticao.getSelectedItem().toString().equals("Sem repetição")) {
+            for (int i = 0; i < 30; i++) {
+                AcessoBanco.getInstance(this).open();
+                AcessoBanco.getInstance(this).insertCompromisso(data, campoTitulo.getText().toString(), campoLocal.getText().toString(), campoParticipante.getText().toString(), campoTipoEvento.getSelectedItem().toString(), campoRepeticao.getSelectedItem().toString());
+                AcessoBanco.getInstance(this).close();
 
-
-        // TODO: ACAO DE SALVAR AQUI
-        AcessoBanco.getInstance(this).open();
-        AcessoBanco.getInstance(this).insertCompromisso(campoDataInicio.getText().toString(), campoTitulo.getText().toString(), campoLocal.getText().toString(), campoParticipante.getText().toString(), campoTipoEvento.getSelectedItem().toString());
-        AcessoBanco.getInstance(this).close();
-
-
+                switch (campoRepeticao.getSelectedItem().toString()) {
+                    case "Diariamente":
+                        c.add(Calendar.DAY_OF_YEAR,1);
+                        break;
+                    case "Semanalmente":
+                        c.add(Calendar.DAY_OF_YEAR,7);
+                        break;
+                    case "Mensalmente":
+                        c.add(Calendar.MONTH,1);
+                        break;
+                    case "Anualmente":
+                        c.add(Calendar.YEAR,1);
+                        break;
+                }
+                data = df.format(c.getTime());
+            }
+        } else {
+            AcessoBanco.getInstance(this).open();
+            AcessoBanco.getInstance(this).insertCompromisso(data, campoTitulo.getText().toString(), campoLocal.getText().toString(), campoParticipante.getText().toString(), campoTipoEvento.getSelectedItem().toString(), campoRepeticao.getSelectedItem().toString());
+            AcessoBanco.getInstance(this).close();
+        }
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

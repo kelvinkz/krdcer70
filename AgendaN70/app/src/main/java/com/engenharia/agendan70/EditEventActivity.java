@@ -60,7 +60,7 @@ public class EditEventActivity extends AppCompatActivity {
 
     public void gotoSalvar(View view) {
         AcessoBanco.getInstance(this).open();
-        AcessoBanco.getInstance(this).updateCompromisso(campoDataInicio.getText().toString(), campoTitulo.getText().toString(), campoLocal.getText().toString(), campoParticipante.getText().toString(), campoTipoEvento.getSelectedItem().toString(), id);
+        AcessoBanco.getInstance(this).updateCompromisso(campoDataInicio.getText().toString(), campoTitulo.getText().toString(), campoLocal.getText().toString(), campoParticipante.getText().toString(), campoTipoEvento.getSelectedItem().toString(), campoRepeticao.getSelectedItem().toString(), id);
         AcessoBanco.getInstance(this).close();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

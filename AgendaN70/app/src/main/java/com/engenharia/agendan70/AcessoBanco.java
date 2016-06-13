@@ -52,13 +52,14 @@ public class AcessoBanco {
         return list;
     }
 
-    public long insertCompromisso(String date, String descricao, String local, String participantes, String tipoEvento) {
+    public long insertCompromisso(String date, String descricao, String local, String participantes, String tipoEvento, String repeticao) {
         ContentValues initialValues = new ContentValues();
         initialValues.put("DATA", date);
         initialValues.put("DESCRICAO", descricao);
         initialValues.put("LOCAL", local);
         initialValues.put("PARTICIPANTES", participantes);
         initialValues.put("TIPO_EVENTO", tipoEvento);
+        initialValues.put("REPETICAO", repeticao);
         return database.insert("COMPROMISSO", null, initialValues);
     }
 
@@ -82,13 +83,14 @@ public class AcessoBanco {
         return mCursor;
     }
 
-    public void updateCompromisso(String date, String descricao, String local, String participantes, String tipoEvento, int id) {
+    public void updateCompromisso(String date, String descricao, String local, String participantes, String tipoEvento, String repeticao, int id) {
         ContentValues cv = new ContentValues();
-        cv.put("DATA", date); //These Fields should be your String values of actual column names
+        cv.put("DATA", date);
         cv.put("DESCRICAO", descricao);
         cv.put("LOCAL", local);
         cv.put("PARTICIPANTES", participantes);
         cv.put("TIPO_EVENTO", tipoEvento);
+        cv.put("REPETICAO", repeticao);
         database.update("COMPROMISSO", cv, "ID="+id, null);
     }
 }
