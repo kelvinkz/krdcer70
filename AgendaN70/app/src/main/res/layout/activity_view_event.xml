@@ -25,7 +25,8 @@
             android:layout_width="350px"
             android:layout_height="wrap_content"
             android:id="@+id/campoTitulo"
-            android:textSize="18sp"/>
+            android:enabled="false"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -41,6 +42,7 @@
             android:layout_width="350px"
             android:layout_height="wrap_content"
             android:id="@+id/campoLocal"
+            android:enabled="false"
             android:textSize="18sp"/>
     </LinearLayout>
 
@@ -53,12 +55,12 @@
             android:layout_height="wrap_content"
             android:text="@string/tipo_do_evento"
             android:textSize="18sp"/>
-        <Spinner
+        <EditText
+            android:layout_width="350px"
+            android:layout_height="wrap_content"
             android:id="@+id/campoTipoEvento"
-            android:layout_width="200dp"
-            android:layout_height="35dp"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown" />
+            android:enabled="false"
+            android:textSize="18sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -70,12 +72,12 @@
             android:layout_height="wrap_content"
             android:text="@string/repeti_o"
             android:textSize="18sp"/>
-        <Spinner
+        <EditText
+            android:layout_width="350px"
+            android:layout_height="wrap_content"
             android:id="@+id/campoRepeticao"
-            android:layout_width="200dp"
-            android:layout_height="35dp"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown" />
+            android:enabled="false"
+            android:textSize="18sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -91,6 +93,7 @@
             android:id="@+id/campoData"
             android:layout_width="350px"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:inputType="date"/>
     </LinearLayout>
 
@@ -107,6 +110,7 @@
             android:layout_width="350px"
             android:layout_height="wrap_content"
             android:id="@+id/campoParticipante"
+            android:enabled="false"
             android:textSize="18sp"/>
 
     </LinearLayout>

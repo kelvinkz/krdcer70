@@ -16,16 +16,18 @@
             android:text="Descricao:"
             android:textSize="18sp"/>
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:id="@+id/campoTitulo"
+            android:enabled="false"
             android:textSize="18sp"/>
 
         <Button
             android:id="@+id/btVerDetalhes"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="V"
+            android:text=""
+            android:drawableBottom="@drawable/eye_ico"
             android:onClick="gotoViewCompromisso"
             android:textSize="18sp"/>
 
@@ -33,7 +35,8 @@
             android:id="@+id/btEditar"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="E"
+            android:text=""
+            android:drawableBottom="@drawable/pencil_ico"
             android:onClick="gotoEditCompromisso"
             android:textSize="18sp"/>
 
@@ -41,26 +44,15 @@
             android:id="@+id/btExcluir"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="X"
+            android:text=""
+            android:drawableBottom="@drawable/trash_ico"
             android:onClick="gotoDeletCompromisso"
             android:textSize="18sp"/>
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Data:"
-            android:textSize="18sp"/>
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/campoData"
-            android:textSize="18sp"/>
-
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
