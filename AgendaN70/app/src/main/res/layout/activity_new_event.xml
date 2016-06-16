@@ -91,7 +91,9 @@
             android:id="@+id/campoData"
             android:layout_width="350px"
             android:layout_height="wrap_content"
-            android:inputType="date"/>
+            android:inputType="date"
+            android:hint="DD/MM/YYYY"
+            android:maxLength="10"/>
     </LinearLayout>
 
     <LinearLayout

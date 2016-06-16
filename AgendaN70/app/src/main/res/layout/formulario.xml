@@ -16,7 +16,7 @@
             android:text="Descricao:"
             android:textSize="18sp"/>
         <EditText
-            android:layout_width="150dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:id="@+id/campoTitulo"
             android:enabled="false"
